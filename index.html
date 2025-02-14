@@ -12,12 +12,64 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+<style type="text/css">
+    /* 1. Style header/footer <div> so they are positioned as desired. */
+    #header-left {
+              position: absolute;
+                      top: 0%;
+                              left: 0%;
+                                  }
+        #header-right {
+                  position: absolute;
+                          top: 0%;
+                                  right: 0%;
+                                      }
+            #footer-left {
+                      position: absolute;
+                              bottom: 0%;
+                                      left: 0%;
+                                          }
+</style>
 	</head>
 	<body>
+
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+        <section>
+          <h1>This is DC404</h1>
+          You made it!
+        </section>
+        <section>
+          Today's presentation:
+          <h2>How Your Python Code Could Be Hacked (And How to Stop It)</h2>
+          <h4>Guled Abdilahi (reducto)</h4>
+          </section>
+        <section>
+          <h1>Join us on discord</h1>
+          <img width="50%" src="dc404-discord.png" />
+        </section>
+        <section>
+          <h1>Try Lockpicking at the center table</h1>
+          Thanks Atlanta Locksport!
+        </section>
+        <section>
+          <h1><s>Try the CTF</s></h1>
+          Connect to NetKotH wifi<br />
+          Password: 2600dc404<br />
+          http://scoreboard.netkoth.org
+        </section>
+        <section>
+          Related meetups:
+          <h1>OWASP Atlanta</h1>
+          <h4>Feb 20: AI Empowerment vs Security Risk</h4>
+          https://www.meetup.com/owasp-atlanta/
+        </section>
+        <section>
+          <h1>Big thanks to Manuel's Tavern</h1>
+          They give us this space for free, so tip well!<br />
+          Get out of here by 4pm plz
+        </section>
 			</div>
 		</div>
 
@@ -31,10 +83,35 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+        autoSlide: 30 * 1000,
+        loop: true,
+        controls: false,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
 		</script>
+<!-- 2. Create hidden header/footer <div> -->
+<div id="hidden" style="display:none;">
+    <div id="header">
+        <div id="header-left">DC404</div>
+        <div id="header-right"></div>
+        <div id="footer-left"></div>
+    </div>
+</div>
+
+<script src="jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+    // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+    var header = $('#header').html();
+    if ( window.location.search.match( /print-pdf/gi ) ) {
+        Reveal.addEventListener( 'ready', function( event ) {
+            $('.slide-background').append(header);
+        });
+    }
+    else {
+        $('div.reveal').append(header);
+   }
+</script>
 	</body>
 </html>
